@@ -10,7 +10,7 @@ function countCharacters() {
   let total = 0
 
   for (let char of words.value) {
-    if (char != ` `) {
+    if (char != ` ` && char != `\n`) {
       if (counts[char] == null) {
         counts[char] = 0
       }
