@@ -27,7 +27,7 @@ function countCharacters() {
     frequency.classList.add(`frequency`)
     frequencies.appendChild(frequency)
 
-    let characterDiv = document.createElement(`div`);
+    let characterDiv = document.createElement(`div`)
     characterDiv.classList.add(`character`)
     characterDiv.innerHTML = char
     frequency.appendChild(characterDiv)
