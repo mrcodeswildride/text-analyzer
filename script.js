@@ -1,40 +1,44 @@
 let words = document.getElementById(`words`)
-let frequencies = document.getElementById(`frequencies`)
+let table = document.getElementById(`table`)
 
 words.addEventListener(`input`, countCharacters)
 words.focus()
 
 function countCharacters() {
-  frequencies.innerHTML = ``
-  let counts = {}
+  let chars = {}
   let total = 0
 
   for (let char of words.value) {
     if (char != ` ` && char != `\n`) {
-      if (counts[char] == null) {
-        counts[char] = 0
+      if (chars[char] == null) {
+        chars[char] = 0
       }
 
-      counts[char]++
+      chars[char]++
       total++
     }
   }
 
-  for (let char in counts) {
-    let percent = (counts[char] / total) * 100
+  table.innerHTML = ``
 
-    let frequency = document.createElement(`div`)
-    frequency.classList.add(`frequency`)
-    frequencies.appendChild(frequency)
-
-    let characterDiv = document.createElement(`div`)
-    characterDiv.classList.add(`character`)
-    characterDiv.innerHTML = char
-    frequency.appendChild(characterDiv)
-
-    let percentDiv = document.createElement(`div`)
-    percentDiv.classList.add(`percent`)
-    percentDiv.innerHTML = `${percent.toFixed(2)}%`
-    frequency.appendChild(percentDiv)
+  for (let char in chars) {
+    let percent = (chars[char] / total) * 100
+    makeRow(char, `${percent.toFixed(2)}%`)
   }
+}
+
+function makeRow(key, value) {
+  let row = document.createElement(`div`)
+  row.classList.add(`row`)
+  table.appendChild(row)
+
+  let keyDiv = document.createElement(`div`)
+  keyDiv.classList.add(`key`)
+  keyDiv.innerHTML = key
+  row.appendChild(keyDiv)
+
+  let valueDiv = document.createElement(`div`)
+  valueDiv.classList.add(`value`)
+  valueDiv.innerHTML = value
+  row.appendChild(valueDiv)
 }

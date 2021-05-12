@@ -11,6 +11,7 @@ textarea,
 textarea {
   width: 375px;
   height: 375px;
+  max-width: calc(100% - 38px);
   margin-right: 30px;
   margin-bottom: 30px;
 }
@@ -19,23 +20,23 @@ h2 {
   margin-top: 0;
 }
 
-.frequency {
+.row {
   font-size: 24px;
   font-family: "Courier New", Courier, monospace;
   margin-bottom: 5px;
 }
 
-.character,
-.percent {
+.key,
+.value {
   display: inline-block;
 }
 
-.character {
+.key {
   width: 15px;
   font-weight: bold;
 }
 
-.percent {
+.value {
   width: 150px;
   text-align: right;
 }
